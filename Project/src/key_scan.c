@@ -20,10 +20,10 @@ uint8_t mode_O=0;
 ========================================================================*/
 void KEY_init()
 {
+  GPIO_QuickInit(HW_GPIOC, 10, kGPIO_Mode_IPU);
+  GPIO_QuickInit(HW_GPIOC, 11, kGPIO_Mode_IPU);
+  GPIO_QuickInit(HW_GPIOC, 12, kGPIO_Mode_IPU);
   GPIO_QuickInit(HW_GPIOC, 13, kGPIO_Mode_IPU);
-  GPIO_QuickInit(HW_GPIOC, 16, kGPIO_Mode_IPU);
-  GPIO_QuickInit(HW_GPIOC, 17, kGPIO_Mode_IPU);
-  GPIO_QuickInit(HW_GPIOC, 18, kGPIO_Mode_IPU);
 }
 /*========================================================================
 *  函数名称:  KEY_Scan_D
@@ -169,39 +169,69 @@ void KEY_Scan_O(void)
             break;
     }
 }
+//void  KEY_Scan()
+//{
+//        //按键检测
+//    KEY_Scan_D(); //调用按键扫描程序 
+//    DelayMs(10);
+//    if(gRetValue_D == KEY_SINGLE_D)
+//    {
+//      LCD_set_XY(0, 2);
+//      LCD_write_english("wo");
+//      mode_D=1;
+//    }
+//    KEY_Scan_L(); //调用按键扫描程序
+//    DelayMs(10);
+//    if(gRetValue_L == KEY_SINGLE_L)
+//    {
+//      LCD_set_XY(0, 3);
+//      LCD_write_english("ai");
+//      mode_L=1;
+//    }
+//    KEY_Scan_R(); //调用按键扫描程序
+//    DelayMs(10);
+//    if(gRetValue_R == KEY_SINGLE_R)
+//    {
+//      LCD_set_XY(0, 4);
+//      LCD_write_english("ni");
+//      mode_R=1;
+//    }
+//    KEY_Scan_O(); //调用按键扫描程序
+//    DelayMs(10);
+//    if(gRetValue_O == KEY_SINGLE_O)
+//    {
+//      LCD_set_XY(0, 5);
+//      LCD_write_english("ha");
+//      mode_O=1;
+//    } 
+//}
+
+/*调参数时使用*/
 void  KEY_Scan()
 {
         //按键检测
-    KEY_Scan_D(); //调用按键扫描程序 
+    KEY_Scan_D(); 
     DelayMs(10);
     if(gRetValue_D == KEY_SINGLE_D)
     {
-      LCD_set_XY(0, 2);
-      LCD_write_english("wo");
-      mode_D=1;
+      Control=Control+2;
     }
-    KEY_Scan_L(); //调用按键扫描程序
+    KEY_Scan_L(); 
     DelayMs(10);
     if(gRetValue_L == KEY_SINGLE_L)
     {
-      LCD_set_XY(0, 3);
-      LCD_write_english("ai");
-      mode_L=1;
+      Control=Control-2;
     }
-    KEY_Scan_R(); //调用按键扫描程序
+    KEY_Scan_R(); 
     DelayMs(10);
     if(gRetValue_R == KEY_SINGLE_R)
     {
-      LCD_set_XY(0, 4);
-      LCD_write_english("ni");
-      mode_R=1;
+      Control=Control+10;
     }
-    KEY_Scan_O(); //调用按键扫描程序
+    KEY_Scan_O(); 
     DelayMs(10);
     if(gRetValue_O == KEY_SINGLE_O)
     {
-      LCD_set_XY(0, 5);
-      LCD_write_english("ha");
-      mode_O=1;
+      Control=Control-10;
     } 
 }

@@ -4,20 +4,20 @@
 #include "stdint.h"
 //#include "Soft_I2C.h"
 
-#define OLED_DO_OUT_LOW             GPIO_ResetBit(HW_GPIOB, 23)
-#define OLED_DO_OUT_HIGH            GPIO_SetBit(HW_GPIOB, 23)  
+#define OLED_DO_OUT_LOW             GPIO_ResetBit(HW_GPIOE, 0)
+#define OLED_DO_OUT_HIGH            GPIO_SetBit(HW_GPIOE, 0)  
 
-#define OLED_DI_OUT_LOW             GPIO_ResetBit(HW_GPIOB, 22) 
-#define OLED_DI_OUT_HIGH            GPIO_SetBit(HW_GPIOB, 22)   
+#define OLED_DI_OUT_LOW             GPIO_ResetBit(HW_GPIOE, 1) 
+#define OLED_DI_OUT_HIGH            GPIO_SetBit(HW_GPIOE, 1)   
 
-#define OLED_RST_OUT_LOW            GPIO_ResetBit(HW_GPIOB, 21)  
-#define OLED_RST_OUT_HIGH           GPIO_SetBit(HW_GPIOB, 21)    
+#define OLED_RST_OUT_LOW            GPIO_ResetBit(HW_GPIOE, 2)  
+#define OLED_RST_OUT_HIGH           GPIO_SetBit(HW_GPIOE, 2)    
 
-#define OLED_DC_OUT_LOW             GPIO_ResetBit(HW_GPIOB, 20)  
-#define OLED_DC_OUT_HIGH            GPIO_SetBit(HW_GPIOB, 20)    
+#define OLED_DC_OUT_LOW             GPIO_ResetBit(HW_GPIOE, 3)  
+#define OLED_DC_OUT_HIGH            GPIO_SetBit(HW_GPIOE, 3)    
 
-#define OLED_CS_OUT_LOW             GPIO_ResetBit(HW_GPIOB, 16)  
-#define OLED_CS_OUT_HIGH            GPIO_SetBit(HW_GPIOB, 16)    
+#define OLED_CS_OUT_LOW             GPIO_ResetBit(HW_GPIOE, 4)  
+#define OLED_CS_OUT_HIGH            GPIO_SetBit(HW_GPIOE, 4)    
 
 typedef uint8_t u8;
 typedef uint16_t u16;

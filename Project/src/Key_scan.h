@@ -1,9 +1,9 @@
 #include "common.h"
 
-#define KEY_D  PCin(13)  //定义PTE端口的13引脚为输入
-#define KEY_L  PCin(16)  //定义PTE端口的16引脚为输入
-#define KEY_R  PCin(17)  //定义PTE端口的17引脚为输入
-#define KEY_O  PCin(18)  //定义PTC端口的18引脚为输入
+#define KEY_D  PCin(10)  //定义PTE端口的13引脚为输入
+#define KEY_L  PCin(11)  //定义PTE端口的16引脚为输入
+#define KEY_R  PCin(12)  //定义PTE端口的17引脚为输入
+#define KEY_O  PCin(13)  //定义PTC端口的18引脚为输入
 /////* 按键返回状态 0未按 1按下 */
 #define NO_KEY_D          (0x00)
 #define NO_KEY_L          (0x00)
@@ -45,3 +45,5 @@ void KEY_Scan_L(void);
 void KEY_Scan_R(void);
 void KEY_Scan_O(void);
 void KEY_Scan();
+
+extern int Control;

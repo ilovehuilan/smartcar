@@ -8,9 +8,9 @@
 #include "math.h"
 int32_t right_pwm=0,left_pwm=0;
 int16_t right_set=250,right_error=0,right_last_error=0,right_last_error2=0;
-float left_KP=30,left_KI=30,left_KD=0;
+float left_KP=10,left_KI=10,left_KD=0;
 int16_t left_set=250,left_error=0,left_last_error=0,left_last_error2=0;
-float right_KP=30,right_KI=30,right_KD=0;
+float right_KP=10,right_KI=10,right_KD=0;
 int value1=0; /* 记录正交脉冲个数 */
 int value2=0;
 
@@ -37,12 +37,12 @@ void speed_init()
   FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH1, 0);
   FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH2, 0); //右电机正
   FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH3, 0);
-//  //编码器正交解码
-//  FTM_QD_QuickInit(FTM1_QD_PHA_PA12_PHB_PA13, kFTM_QD_NormalPolarity, kQD_PHABEncoding);//左电机
-//  FTM_QD_QuickInit(FTM2_QD_PHA_PB18_PHB_PB19, kFTM_QD_NormalPolarity, kQD_PHABEncoding);//右电机
-//  PIT_QuickInit(HW_PIT_CH0, 1000*10);
-//  PIT_CallbackInstall(HW_PIT_CH0, PIT_ISR);
-//  PIT_ITDMAConfig(HW_PIT_CH0, kPIT_IT_TOF, false);
+  //编码器正交解码
+  FTM_QD_QuickInit(FTM1_QD_PHA_PA12_PHB_PA13, kFTM_QD_NormalPolarity, kQD_PHABEncoding);//左电机
+  FTM_QD_QuickInit(FTM2_QD_PHA_PB18_PHB_PB19, kFTM_QD_NormalPolarity, kQD_PHABEncoding);//右电机
+  PIT_QuickInit(HW_PIT_CH0, 1000*10);
+  PIT_CallbackInstall(HW_PIT_CH0, PIT_ISR);
+  PIT_ITDMAConfig(HW_PIT_CH0, kPIT_IT_TOF, false);
   
 }
 
@@ -287,8 +287,8 @@ void speed_send_information(uint16_t n,uint16_t m )
 ========================================================================*/
 void speed_test()
 {
-  FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH0, 2500); //左电机正
+  FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH0, 2700); //左电机正
   FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH1, 0);
   FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH2, 0); //右电机正
-  FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH3, 2500);
+  FTM_PWM_ChangeDuty(HW_FTM0, HW_FTM_CH3, 2700);
 }

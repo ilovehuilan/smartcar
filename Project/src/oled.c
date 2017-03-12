@@ -644,16 +644,16 @@ void LCD_DLY_ms(u16 ms)
 
 void LCD_Init(void)
 {
-  GPIO_QuickInit(HW_GPIOB, 23, kGPIO_Mode_OPP);///DO
-  GPIO_SetBit(HW_GPIOB, 23);
-  GPIO_QuickInit(HW_GPIOB, 22, kGPIO_Mode_OPP);///DI
-  GPIO_SetBit(HW_GPIOB, 22);
-  GPIO_QuickInit(HW_GPIOB, 21, kGPIO_Mode_OPP);///RST
-  GPIO_SetBit(HW_GPIOB, 21);
-  GPIO_QuickInit(HW_GPIOB, 20, kGPIO_Mode_OPP);///DC
-  GPIO_SetBit(HW_GPIOB, 20);
-  GPIO_QuickInit(HW_GPIOB, 16, kGPIO_Mode_OPP);///CS
-  GPIO_ResetBit(HW_GPIOB, 16);
+  GPIO_QuickInit(HW_GPIOE,0, kGPIO_Mode_OPP);///DO
+  GPIO_SetBit(HW_GPIOE, 0);
+  GPIO_QuickInit(HW_GPIOE, 1, kGPIO_Mode_OPP);///DI
+  GPIO_SetBit(HW_GPIOE, 1);
+  GPIO_QuickInit(HW_GPIOE, 2, kGPIO_Mode_OPP);///RST
+  GPIO_SetBit(HW_GPIOE, 2);
+  GPIO_QuickInit(HW_GPIOE, 3, kGPIO_Mode_OPP);///DC
+  GPIO_SetBit(HW_GPIOE, 3);
+  GPIO_QuickInit(HW_GPIOE, 4, kGPIO_Mode_OPP);///CS
+  GPIO_ResetBit(HW_GPIOE, 4);
   OLCD_SCL_HIGH;
   //LCD_CS=1;	//预制SLK和SS为高电平
   OLCD_CS_LOW ; ///使能信号端，拉低时正常使用
